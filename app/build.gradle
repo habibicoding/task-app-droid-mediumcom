@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id "kotlin-parcelize"
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.example.task_app_droid_mediumcom'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.task_app_droid_mediumcom"
+        minSdk 25
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+}
+
+dependencies {
+    // General
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation "com.google.android.material:material:$material_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'com.github.xabaras:RecyclerViewSwipeDecorator:1.4'
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_component_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_component_version"
+
+    // Timber Log
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_verion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_verion"
+
+    // Retrofit 2
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.5.0'
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // Epoxy
+    implementation "com.airbnb.android:epoxy:4.6.2"
+    implementation "com.airbnb.android:epoxy-databinding:4.6.2"
+    // Add the annotation processor if you are using Epoxy's annotations (recommended)
+    kapt "com.airbnb.android:epoxy-processor:4.6.2"
+
+    // Facebook Shimmer Layout
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
+    // Dependency Injection Dagger Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    // Unit-Testing
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.7.2'
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
+    testImplementation "io.mockk:mockk:$mockk_version"
+
+    // Espresso
+    androidTestImplementation "androidx.test.ext:junit:$android_test_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_testing_version"
+}
