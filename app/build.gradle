@@ -72,6 +72,7 @@ dependencies {
     // Epoxy
     implementation "com.airbnb.android:epoxy:4.6.2"
     implementation "com.airbnb.android:epoxy-databinding:4.6.2"
+    implementation 'androidx.core:core-ktx:1.10.1'
     // Add the annotation processor if you are using Epoxy's annotations (recommended)
     kapt "com.airbnb.android:epoxy-processor:4.6.2"
 
