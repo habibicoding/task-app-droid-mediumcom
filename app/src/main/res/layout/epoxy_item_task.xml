@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="taskResponse"
+            type="com.example.task_app_droid_mediumcom.model.TaskFetchResponse" />
+
+        <variable
+            name="bgColor"
+            type="Integer" />
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:onClick="@{taskResponse.onClick}"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/task_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/task_priority_and_reminder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@{bgColor}"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/task_priority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:maxLength="25"
+                    android:text="@{@string/priority_text(taskResponse.priority)}"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Priority: LOW" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/task_reminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:maxLength="22"
+                    android:text="@{@string/reminder_text(taskResponse.isReminderSet)}"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Reminder: false" />
+            </RelativeLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/task_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="8dp"
+                android:text="@{taskResponse.description}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task_priority_and_reminder"
+                tools:text="Go and visit Ramallah!" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@{bgColor}"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task_description">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/task_created_on"
+                    formattedDate="@{taskResponse.createdOn}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    tools:text="Created on: 01.07.2023" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
