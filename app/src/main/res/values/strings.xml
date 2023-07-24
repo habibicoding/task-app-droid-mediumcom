@@ -3,4 +3,18 @@
     <string name="created_on_text">"Created on: %s"</string>
     <string name="reminder_text">Reminder: %s</string>
     <string name="priority_text">Priority: %s</string>
+    <string name="zero_tasks_found">zero tasks found</string>
+    <string name="retry_btn_text">Retry</string>
+    <string name="add_icon_description">Add a new task</string>
+    <string name="skeleton_shimmer">skeleton shimmer</string>
+    <string name="delete_task_headline">Are you sure you want to delete the task?</string>
+    <string name="delete_task">Delete</string>
+    <string name="cancel_delete_task">Cancel</string>
+    <string name="pressed_cancel_delete">Pressed cancel</string>
+    <string name="no_tasks_found">No, tasks found</string>
+    <string name="task_request_success_message">Request success</string>
+    <string name="task_request_failure_message">Request failure</string>
+    <string name="closed_tasks">Closed Tasks</string>
+    <string name="open_tasks">Open Tasks</string>
+    <string name="all_tasks">All Tasks</string>
 </resources>

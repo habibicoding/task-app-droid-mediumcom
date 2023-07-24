@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/closed_tasks"
+        android:icon="@drawable/ic_closed_tasks_24"
+        android:title="@string/closed_tasks" />
+
+    <item
+        android:id="@+id/open_tasks"
+        android:icon="@drawable/ic_open_tasks_24"
+        android:title="@string/open_tasks" />
+
+    <item
+        android:id="@+id/all_tasks"
+        android:icon="@drawable/ic_all_tasks_24"
+        android:title="@string/all_tasks" />
+
+</menu>

@@ -50,6 +50,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'androidx.core:core-splashscreen:1.0.1'
     implementation 'com.github.xabaras:RecyclerViewSwipeDecorator:1.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_component_version"
