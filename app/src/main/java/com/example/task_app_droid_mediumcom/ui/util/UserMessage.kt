@@ -15,12 +15,7 @@ fun displayAlertDialog(id: String, context: Context, message: String, viewModel:
         setNegativeButton(
             context.getString(R.string.cancel_delete_task)
         ) { _, _ ->
-            Toast.makeText(
-                context,
-                context.getString(R.string.pressed_cancel_delete),
-                Toast.LENGTH_SHORT
-            )
-                .show()
+            showToastMessage(context, context.getString(R.string.pressed_cancel_delete))
         }
         create()
     }.show()

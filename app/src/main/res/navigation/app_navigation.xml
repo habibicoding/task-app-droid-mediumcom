@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@+id/open_tasks">
+
+    <fragment
+        android:id="@+id/closed_tasks"
+        android:name="com.example.task_app_droid_mediumcom.ui.bottom.nav.ClosedTasksFragment"
+        android:label="@string/closed_tasks"
+        tools:layout="@layout/fragment_task">
+
+        <action
+            android:id="@+id/action_closed_task_to_task_detail"
+            app:destination="@+id/task_detail"
+            app:popUpTo="@id/closed_tasks"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_closed_task_to_edit_task"
+            app:destination="@+id/edit_task"
+            app:popUpTo="@id/closed_tasks"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/open_tasks"
+        android:name="com.example.task_app_droid_mediumcom.ui.bottom.nav.OpenTasksFragment"
+        android:label="@string/open_tasks"
+        tools:layout="@layout/fragment_task">
+
+        <action
+            android:id="@+id/action_open_task_to_task_detail"
+            app:destination="@+id/task_detail"
+            app:popUpTo="@id/open_tasks"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_open_task_to_create_task"
+            app:destination="@+id/create_task"
+            app:popUpTo="@id/open_tasks"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_open_task_to_edit_task"
+            app:destination="@+id/edit_task"
+            app:popUpTo="@id/open_tasks"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/all_tasks"
+        android:name="com.example.task_app_droid_mediumcom.ui.bottom.nav.AllTasksFragment"
+        android:label="@string/all_tasks"
+        tools:layout="@layout/fragment_task">
+
+        <action
+            android:id="@+id/action_all_tasks_to_task_detail"
+            app:destination="@+id/task_detail"
+            app:popUpTo="@id/all_tasks"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_all_tasks_to_edit_task"
+            app:destination="@+id/edit_task"
+            app:popUpTo="@id/all_tasks"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/task_detail"
+        android:name="com.example.task_app_droid_mediumcom.ui.TaskDetailFragment"
+        android:label="@string/task_detail"
+        tools:layout="@layout/fragment_task_detail">
+
+        <action
+            android:id="@+id/action_task_detail_to_edit_task"
+            app:destination="@+id/edit_task"
+            app:popUpTo="@id/task_detail"
+            app:popUpToInclusive="false" />
+
+        <argument
+            android:name="task_id"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/create_task"
+        android:name="com.example.task_app_droid_mediumcom.ui.CreateTaskFragment"
+        android:label="@string/create_task"
+        tools:layout="@layout/fragment_create_task" />
+
+    <fragment
+        android:id="@+id/edit_task"
+        android:name="com.example.task_app_droid_mediumcom.ui.EditTaskFragment"
+        android:label="@string/task_detail_edit_task"
+        tools:layout="@layout/fragment_edit_task">
+
+        <argument
+            android:name="task_item"
+            app:argType="com.example.task_app_droid_mediumcom.model.TaskFetchResponse" />
+
+        <action
+            android:id="@+id/action_edit_task_to_task_detail"
+            app:destination="@+id/task_detail"
+            app:popUpTo="@id/edit_task"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+</navigation>

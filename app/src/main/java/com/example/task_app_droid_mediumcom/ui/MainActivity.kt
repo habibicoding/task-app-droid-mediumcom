@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.example.task_app_droid_mediumcom.R
+import com.example.task_app_droid_mediumcom.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,13 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.closed_tasks,
-                R.id.open_tasks,
-                R.id.all_tasks
-            )
-        )
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
 }

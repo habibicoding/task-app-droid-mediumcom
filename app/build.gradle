@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id "kotlin-parcelize"
+    id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 }
 
@@ -81,8 +81,8 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 
     // Dependency Injection Dagger Hilt
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-compiler:2.44"
 
     // Unit-Testing
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
@@ -98,4 +98,8 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
     debugImplementation "androidx.fragment:fragment-testing:$fragment_testing_version"
+}
+
+kapt {
+    correctErrorTypes true
 }
