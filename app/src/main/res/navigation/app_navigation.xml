@@ -6,25 +6,6 @@
     app:startDestination="@+id/open_tasks">
 
     <fragment
-        android:id="@+id/closed_tasks"
-        android:name="com.example.task_app_droid_mediumcom.ui.bottom.nav.ClosedTasksFragment"
-        android:label="@string/closed_tasks"
-        tools:layout="@layout/fragment_task">
-
-        <action
-            android:id="@+id/action_closed_task_to_task_detail"
-            app:destination="@+id/task_detail"
-            app:popUpTo="@id/closed_tasks"
-            app:popUpToInclusive="false" />
-
-        <action
-            android:id="@+id/action_closed_task_to_edit_task"
-            app:destination="@+id/edit_task"
-            app:popUpTo="@id/closed_tasks"
-            app:popUpToInclusive="false" />
-    </fragment>
-
-    <fragment
         android:id="@+id/open_tasks"
         android:name="com.example.task_app_droid_mediumcom.ui.bottom.nav.OpenTasksFragment"
         android:label="@string/open_tasks"
@@ -47,6 +28,27 @@
             app:destination="@+id/edit_task"
             app:popUpTo="@id/open_tasks"
             app:popUpToInclusive="false" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/closed_tasks"
+        android:name="com.example.task_app_droid_mediumcom.ui.bottom.nav.ClosedTasksFragment"
+        android:label="@string/closed_tasks"
+        tools:layout="@layout/fragment_task">
+
+        <action
+            android:id="@+id/action_closed_task_to_task_detail"
+            app:destination="@+id/task_detail"
+            app:popUpTo="@id/closed_tasks"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_closed_task_to_edit_task"
+            app:destination="@+id/edit_task"
+            app:popUpTo="@id/closed_tasks"
+            app:popUpToInclusive="false" />
+
     </fragment>
 
     <fragment
@@ -66,23 +68,7 @@
             app:destination="@+id/edit_task"
             app:popUpTo="@id/all_tasks"
             app:popUpToInclusive="false" />
-    </fragment>
 
-    <fragment
-        android:id="@+id/task_detail"
-        android:name="com.example.task_app_droid_mediumcom.ui.TaskDetailFragment"
-        android:label="@string/task_detail"
-        tools:layout="@layout/fragment_task_detail">
-
-        <action
-            android:id="@+id/action_task_detail_to_edit_task"
-            app:destination="@+id/edit_task"
-            app:popUpTo="@id/task_detail"
-            app:popUpToInclusive="false" />
-
-        <argument
-            android:name="task_id"
-            app:argType="long" />
     </fragment>
 
     <fragment
@@ -106,6 +92,24 @@
             app:destination="@+id/task_detail"
             app:popUpTo="@id/edit_task"
             app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/task_detail"
+        android:name="com.example.task_app_droid_mediumcom.ui.TaskDetailFragment"
+        android:label="@string/task_detail"
+        tools:layout="@layout/fragment_task_detail">
+
+        <action
+            android:id="@+id/action_task_detail_to_edit_task"
+            app:destination="@+id/edit_task"
+            app:popUpTo="@id/task_detail"
+            app:popUpToInclusive="false" />
+
+        <argument
+            android:name="task_id"
+            app:argType="long" />
 
     </fragment>
 
