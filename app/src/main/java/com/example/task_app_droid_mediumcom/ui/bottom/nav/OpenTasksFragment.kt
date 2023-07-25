@@ -3,6 +3,7 @@ package com.example.task_app_droid_mediumcom.ui.bottom.nav
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.example.task_app_droid_mediumcom.R
 import com.example.task_app_droid_mediumcom.model.TaskFetchResponse
 import com.example.task_app_droid_mediumcom.model.TaskStatus
@@ -34,14 +35,21 @@ class OpenTasksFragment : TaskFragment() {
     }
 
     override fun navigateToEditTask(task: TaskFetchResponse) {
-        // todo: implement
+        val action =
+            OpenTasksFragmentDirections.actionOpenTaskToEditTask(task)
+        findNavController().navigate(action)
     }
 
     override fun navigateToTaskDetail(task: TaskFetchResponse) {
-        // todo: implement
+        val action =
+            OpenTasksFragmentDirections.actionOpenTaskToTaskDetail(task.id)
+        findNavController().navigate(action)
     }
 
     private fun setUpCreateTaskButton() {
-        // todo: implement
+        binding.fabBtn.setOnClickListener {
+            val action = OpenTasksFragmentDirections.actionOpenTaskToCreateTask()
+            findNavController().navigate(action)
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.example.task_app_droid_mediumcom.ui.bottom.nav
 
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.example.task_app_droid_mediumcom.R
 import com.example.task_app_droid_mediumcom.model.TaskFetchResponse
 import com.example.task_app_droid_mediumcom.model.TaskStatus
@@ -12,6 +13,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class ClosedTasksFragment : TaskFragment() {
+
     override fun onResume() {
         super.onResume()
         callViewModel()
@@ -28,10 +30,14 @@ class ClosedTasksFragment : TaskFragment() {
     }
 
     override fun navigateToEditTask(task: TaskFetchResponse) {
-        // todo: implement
+        val action =
+            ClosedTasksFragmentDirections.actionClosedTaskToEditTask(task)
+        findNavController().navigate(action)
     }
 
     override fun navigateToTaskDetail(task: TaskFetchResponse) {
-        // todo: implement
+        val action =
+            ClosedTasksFragmentDirections.actionClosedTaskToTaskDetail(task.id)
+        findNavController().navigate(action)
     }
 }

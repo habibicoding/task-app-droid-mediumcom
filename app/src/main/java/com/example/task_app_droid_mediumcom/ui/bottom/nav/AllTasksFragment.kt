@@ -2,6 +2,7 @@ package com.example.task_app_droid_mediumcom.ui.bottom.nav
 
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.example.task_app_droid_mediumcom.R
 import com.example.task_app_droid_mediumcom.model.TaskFetchResponse
 import com.example.task_app_droid_mediumcom.ui.view.epoxy.TaskEpoxyController
@@ -28,10 +29,14 @@ class AllTasksFragment : TaskFragment() {
     }
 
     override fun navigateToEditTask(task: TaskFetchResponse) {
-        // todo: implement method
+        val action =
+            AllTasksFragmentDirections.actionAllTasksToEditTask(task)
+        findNavController().navigate(action)
     }
 
     override fun navigateToTaskDetail(task: TaskFetchResponse) {
-        // todo: implement method
+        val action =
+            AllTasksFragmentDirections.actionAllTasksToTaskDetail(task.id)
+        findNavController().navigate(action)
     }
 }
