@@ -1,0 +1,26 @@
+[
+  {
+    "id": 815,
+    "description": "Finish ToDo App",
+    "isReminderSet": false,
+    "isTaskOpen": true,
+    "createdOn": "2022-09-09T10:53:57",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": 825,
+    "description": "أكل فلافل / Eat Falafel",
+    "isReminderSet": false,
+    "isTaskOpen": true,
+    "createdOn": "2022-09-09T10:54:44",
+    "priority": "HIGH"
+  },
+  {
+    "id": 826,
+    "description": "Go to the gym / ذهاب الى الرياضية",
+    "isReminderSet": false,
+    "isTaskOpen": false,
+    "createdOn": "2023-08-19T10:54:44",
+    "priority": "LOW"
+  }
+]
