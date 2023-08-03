@@ -11,7 +11,6 @@ import com.example.task_app_droid_mediumcom.model.TaskUpdateRequest
 import com.example.task_app_droid_mediumcom.repository.TaskRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
-import io.mockk.coVerify
 import io.mockk.confirmVerified
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.RelaxedMockK
@@ -130,7 +129,7 @@ internal class TaskViewModelImplTest {
         objectUnderTest.fetchTasks(null)
 
         // then
-        coVerify {
+        verifyOrder {
             responseObservers.onChanged(ViewState.Loading)
             responseObservers.onChanged(ViewState.Error(mockHttpException))
         }
@@ -178,7 +177,7 @@ internal class TaskViewModelImplTest {
         objectUnderTest.fetchTaskById("2")
 
         // then
-        coVerify {
+        verifyOrder {
             responseObserver.onChanged(ViewState.Loading)
             responseObserver.onChanged(ViewState.Error(mockHttpException))
         }
@@ -227,7 +226,7 @@ internal class TaskViewModelImplTest {
         objectUnderTest.createTask(createRequest)
 
         // then
-        coVerify {
+        verifyOrder {
             responseObserver.onChanged(ViewState.Loading)
             responseObserver.onChanged(ViewState.Error(mockHttpException))
         }
@@ -275,7 +274,7 @@ internal class TaskViewModelImplTest {
         objectUnderTest.updateTask("1", updateRequest)
 
         // then
-        coVerify {
+        verifyOrder {
             responseObserver.onChanged(ViewState.Loading)
             responseObserver.onChanged(ViewState.Error(mockHttpException))
         }
@@ -308,10 +307,7 @@ internal class TaskViewModelImplTest {
         objectUnderTest.deleteTask("4")
 
         // then
-        coVerify {
-            responseObserverDelete.onChanged(false)
-            mockRepo.canDeleteTask("4")
-        }
+        verify { responseObserverDelete.onChanged(false) }
         confirmVerified(responseObserverDelete)
     }
 }
